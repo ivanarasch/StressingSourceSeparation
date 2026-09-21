@@ -1,0 +1,14 @@
+# Environment 1: data generation, evaluation and figures (Python 3.10)
+# Used by: src/make_data_exp2.py, src/evaluate_exp2.py, src/make_figures_exp2.py, notebooks, experiments/exp1 pairs
+# You also need ffmpeg on your PATH (musdb reads the .stem.mp4 files with it).
+numpy==2.2.5
+scipy==1.15.3
+pandas==2.3.3
+soundfile==0.13.1
+musdb==0.4.3
+stempeg==0.2.6
+pydub==0.25.1
+torch==2.5.1
+torchaudio==2.5.1
+matplotlib==3.10.7
+jupyter

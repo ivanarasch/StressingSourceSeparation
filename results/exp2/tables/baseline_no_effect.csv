@@ -1,0 +1,11 @@
+,,sdr,sdr,sdr,si_sdr,si_sdr,si_sdr
+,,mean,median,std,mean,median,std
+model,stem,,,,,,
+demucs,bass,8.95,8.65,4.64,8.14,8.2,5.31
+demucs,drums,10.11,10.13,3.46,9.71,9.7,3.86
+demucs,other,6.29,6.7,2.42,4.89,5.7,3.73
+demucs,vocals,8.69,9.23,3.06,7.73,8.67,4.37
+spleeter,bass,4.71,4.61,3.12,2.4,2.89,5.26
+spleeter,drums,6.44,6.12,2.27,5.2,4.91,2.91
+spleeter,other,4.46,4.96,2.14,2.33,3.44,3.76
+spleeter,vocals,6.76,6.9,2.71,4.77,6.07,7.46

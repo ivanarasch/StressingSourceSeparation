@@ -1,0 +1,9 @@
+# Environment 3: Demucs (Python 3.11)
+# Used by: src/run_demucs_exp2.py
+# The results were produced with Demucs reporting version 4.1.0a2 (a checkout of the facebookresearch/demucs
+# repository on PyTorch 2.0.1). Please verify that the pinned release below installs, or install from that repository
+# at the same commit, and record the exact version you use.
+demucs==4.1.0a2
+torch==2.0.1
+soundfile==0.13.1
+numpy
