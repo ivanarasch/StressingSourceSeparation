@@ -1,0 +1,19 @@
+# audio and archives (hundreds of GB; regenerate with src/ instead)
+*.wav
+*.mp3
+*.flac
+*.mp4
+*.zip
+*.tar.gz
+data/
+# environments, caches, models
+__pycache__/
+.ipynb_checkpoints/
+*.egg-info/
+pretrained_models/
+venv/
+.venv/
+*_env/
+# OS / editor
+.DS_Store
+.vscode/

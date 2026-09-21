@@ -1,0 +1,7 @@
+# Environment 2: Spleeter (Python 3.8; Spleeter needs an old Python)
+# Used by: src/run_spleeter_exp2.py, experiments/exp1_interference/run_spleeter_exp1.py
+# Create it with e.g.:  pyenv install 3.8.18 && ~/.pyenv/versions/3.8.18/bin/python -m venv spleeter_env
+spleeter==2.3.2
+tensorflow==2.13.0      # tensorflow-macos / tensorflow-metal are not needed: the runner uses the CPU
+numpy==1.22.4
+soundfile==0.13.1

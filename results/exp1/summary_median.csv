@@ -1,0 +1,17 @@
+component,pair,model,SI_SDR,SI_SAR_like,RMSE,n_songs
+non_vocal,bass,demucs,20.18813,20.22955,0.00451,50
+non_vocal,bass,spleeter,14.76037,14.90317,0.00824,50
+non_vocal,drums,demucs,16.97866,17.06488,0.00797,50
+non_vocal,drums,spleeter,12.64713,12.87702,0.01279,50
+non_vocal,other,demucs,11.00759,11.33899,0.01415,50
+non_vocal,other,spleeter,9.13041,9.63112,0.01779,50
+non_vocal,accompaniment,demucs,15.48201,15.60323,0.01671,50
+non_vocal,accompaniment,spleeter,13.27456,13.4743,0.02153,50
+vocals,bass,demucs,20.94482,20.97962,0.00459,50
+vocals,bass,spleeter,15.04241,15.17634,0.00868,50
+vocals,drums,demucs,15.57054,15.68933,0.00762,50
+vocals,drums,spleeter,11.77541,12.05488,0.01154,50
+vocals,other,demucs,9.8368,10.26726,0.01384,50
+vocals,other,spleeter,7.85937,8.51785,0.01804,50
+vocals,accompaniment,demucs,8.75009,9.29437,0.01576,50
+vocals,accompaniment,spleeter,6.50139,7.37851,0.02124,50
