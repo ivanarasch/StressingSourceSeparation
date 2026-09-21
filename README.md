@@ -46,7 +46,7 @@ src/            ALL the runnable code, named <verb>_<thing>_exp<N> (paths all co
                              evaluate_exp2.py, make_figures_exp2.py
 notebooks/      thin front ends that call the scripts: exp1_interference and exp2_vocal_effects
 experiments/    exp1_interference/ and exp2_vocal_effects/: the description of each experiment
-                (question, design, results, how to run) plus archived legacy scripts
+                (question, design, results, how to run)
 results/exp1/   per-song metrics, median summary, figure
 results/exp2/   metrics.csv, dryref_vocals.csv, loudness_log.csv, figures/, tables/
 requirements/   one file per environment (three are needed, see below)
