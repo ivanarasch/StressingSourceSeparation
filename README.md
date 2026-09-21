@@ -78,10 +78,6 @@ Every step skips finished work, so it is safe to stop and rerun. Spleeter downlo
 - **Control loudness.** Effects change how loud the vocal is, and that alone changes separation scores. Without matching, compression looked 4 to 7 dB harmful; with the vocal's RMS matched to the original it costs under 1 dB.
 - **Do not reuse one Spleeter `Separator` across files in the 4-stem run.** Its output then depends on the previously processed file (the same mix scored 3.4 dB or 9.8 dB vocal SDR). `src/run_spleeter_exp2.py` creates a fresh one per file.
 
-## More on Experiment 1
-
-Description, all metrics and the run instructions are in [`experiments/exp1_interference/`](experiments/exp1_interference/); the code is in `src/` and runs from `notebooks/exp1_interference.ipynb`. The scores were re-checked: recomputing them from the saved outputs reproduces the original write-up exactly.
-
 ## First version of the project
 
 `archive/` holds the first version of this project (course work), including the original write-up (`archive/README_first_version.md`), the first-pass code, and the first evaluation spreadsheets. It is **superseded** by the code and results above; see `archive/README.md`.
