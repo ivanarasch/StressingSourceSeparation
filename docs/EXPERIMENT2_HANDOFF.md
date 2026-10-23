@@ -223,38 +223,6 @@ Some of these are likely genuine leakage (strong reverb pushing vocal energy int
 - Why reverb hurts (we describe the effect, not the mechanism).
 - Generalization beyond MUSDB18 test or beyond these two models (both are older; newer models such as BS-RoFormer were not tested).
 
-## 9. Corrections to the earlier (Experiment 1 and old Experiment 2) write-up
-
-- **"Accompaniment ≈ piano"** is incorrect; accompaniment = drums + bass + other (Section 3).
-- **The older Experiment 2 numbers** (for example reverb level 4 near -20 dB SI-SDR, and "compression is moderate") came from a version where effect loudness was not controlled. Use the numbers in this document instead.
-- Experiment 1 was rechecked: recomputing its scores from the saved outputs reproduces all 24 numbers in the write-up **exactly**, provided they are described as **medians over the 50 songs** on mono downmixes (the write-up does not say "median"; it should). A spot check of 20 Spleeter outputs (5 songs × 4 pairings) also matched a clean re-run.
-
-## 9b. Experiment 1 in brief (for the write-up)
-
-- **Design:** the vocal stem is added to one non-vocal stem (bass, drums, other, or accompaniment = drums + bass + other) for each of the 50 songs; both models (2-stem mode) separate the vocal; the estimate is scored against the true vocal stem.
-- **Metrics** (mono downmix, true vocal as reference): SI-SDR; an "SI-SAR-like" artifact ratio, `10 log10(||est||² / ||est − proj(est onto vocal)||²)`, which is a fast approximation and not BSS-Eval SAR; and RMSE, which depends on level. Report the aggregation as the **median over 50 songs**.
-- **Result (median vocal SI-SDR, dB):** bass 20.9 (Demucs) / 15.0 (Spleeter); drums 15.6 / 11.8; other 9.8 / 7.9; accompaniment 8.8 / 6.5. Demucs is better on every pairing; both are best with bass and drums and worst with other and accompaniment. The harmonic-overlap explanation is a hypothesis, not a tested finding.
-- **Where these numbers come from:** the write-up table is the `Source = vocals` rows of the ground-truth evaluation in the project repository (`archive/Evaluation/Evaluation Results/Median Scores/exp1_summary_All_Results.csv`, from `evaluation_exp1_results_to_gt.xlsx`). We re-derived every value from the saved separated outputs and they match (SI-SDR and SI-SAR-like to within 0.001 dB, RMSE within 0.00002). "Bass", "Drums", "Other" and "Accompaniment" in the write-up name the *pairing*; the score is for the recovered **vocal**. The same file also has a second set of rows scoring the separated non-vocal remainder against the true stem; the write-up does not use them.
-- **Do not confuse with** the `demucs_vs_spleeter_*.xlsx` files: those compare Spleeter with Demucs's output (model agreement, not accuracy) and are not the source of any table here.
-- Full table and figure: `experiments/exp1_interference/` and `results/exp1/`; code in `src/` (`make_pairs_exp1.py`, `run_spleeter_exp1.py`, `run_demucs_exp1.sh`, `evaluate_exp1.py`).
-
-## 10. Suggested figures and tables for the paper
-
-- **Figure 1** (`fig1_vocal_delta_sdr_by_level`): main result, both models.
-- **Figure 2** or **Table** for stems at level 4 (`fig2_stems_by_effect_level4`): leakage into other stems.
-- **Figure 3** (`fig3_processed_vs_dry_reference_level4`): models keep the effect.
-- **Table 1:** effect parameters (Section 4.1). **Table 2:** vocal ΔSDR with confidence intervals (Section 7.2).
-
-## 11. Reproducing the results
-
-See the repository README for setup. In short (three separate environments, see `requirements/`):
-
-```
-python src/make_data_exp2.py --workers 8     # data-and-evaluation env: mixes, reference stems, loudness log
-python src/run_demucs_exp2.py                            # demucs env
-python src/run_spleeter_exp2.py --workers 3              # spleeter env (CPU, fresh Separator per file)
-python src/evaluate_exp2.py --workers 6 --dry-reference  # data-and-evaluation env: results/exp2/metrics.csv
-python src/make_figures_exp2.py                          # figures and tables in results/exp2/
 ```
 
 Software used: Python 3.10 (`musdb` 0.4.3, `pydub` 0.25.1, `torch` 2.5.1, `numpy` 2.2.5), Python 3.8 (Spleeter 2.3.2, TensorFlow 2.13.0), Python 3.11 (Demucs 4.1.0a2, torch 2.0.1).
