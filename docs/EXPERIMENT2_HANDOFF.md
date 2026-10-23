@@ -74,7 +74,7 @@ Hardware: Apple M4 Max (128 GB); Demucs on the Apple GPU (`mps`), Spleeter on CP
 
 ## 6. Evaluation
 
-- **Metric:** time-domain **SDR** over the full track, `SDR = 10·log10( Σ ref² / Σ (ref − est)² )`, computed per stem, per condition, per song. This is plain SDR, not the BSS-Eval version from `museval` (state this so readers do not assume otherwise). SI-SDR is also in the result CSV.
+- **Metric:** time-domain **SDR** over the full track, `SDR = 10·log10( Σ ref² / Σ (ref − est)² )`, computed per stem, per condition, per song. This is plain SDR, not the BSS-Eval version from `museval`. SI-SDR is also in the result CSV.
 - **ΔSDR** = SDR in a given condition minus SDR for the same song, stem and model with no effect. Negative means the effect hurt. This removes song difficulty.
 - **Aggregation:** median over 50 songs (robust to a few extreme songs), with 95% bootstrap confidence intervals (2,000 resamples of songs). Means are also in `tables/vocals_delta_sdr_summary.csv`.
 - **Tests:** one-sided paired Wilcoxon signed-rank test that ΔSDR < 0, Bonferroni-corrected over 32 tests.
