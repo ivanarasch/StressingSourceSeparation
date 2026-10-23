@@ -35,8 +35,7 @@ Implementation notes worth knowing (details for a methods section or a footnote)
 - **Reverb:** the impulse response is `impulseresponse.wav` (mono, 96 kHz, 2 s). The code uses the 1.01 s to 1.30 s portion (about 0.29 s), scaled to unit energy, and convolves via FFT after resampling the vocal to 96 kHz and back. *To confirm: the source/citation of this IR and its approximate decay time, so the paper can describe the reverb physically.*
 - **Delay:** implemented with `pydub` on 16-bit audio.
 - **Compression:** the envelope follower runs over the interleaved stereo sample stream, so both channels share one envelope. This is a simplification of a true stereo-linked compressor, so describe it as "a simple compressor", not a specific hardware model.
-- The effects are our own simple implementations, not commercial plugins. Say so.
-
+- The effects are our own simple implementations, not commercial plugins.
 ### 4.2 Loudness matching (an important methodological control)
 
 Effects change loudness, and separation scores depend on how loud the vocal is in the mix. In an early version of this experiment we did **not** control for this, and reverb level 4 made the vocal about 9 dB louder while compression level 4 made it about 6.5 dB quieter. That produced misleading results (for example compression looked 4 to 7 dB harmful, when the loudness-controlled loss is under 1 dB). So in the final version:
