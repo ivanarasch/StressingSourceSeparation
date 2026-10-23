@@ -17,7 +17,6 @@ We asked how common vocal effects change the quality of music source separation.
 ## 3. Data
 
 - **Dataset:** MUSDB18 **test** subset, 50 tracks, 44.1 kHz stereo, 3.46 hours in total (track length 76 s to 430 s, median 247 s). Each track provides four stems: vocals, drums, bass, other.
-- **Definition to get right in the text:** the "accompaniment" in MUSDB18 is drums + bass + other (everything except vocals). `other` is a catch-all (guitars, keys, synths, and more), not "piano" or "guitar" specifically.
 
 ## 4. How the test data were synthesized
 
