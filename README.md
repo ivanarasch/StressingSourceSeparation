@@ -81,10 +81,3 @@ Every step skips finished work, so it is safe to stop and rerun. Spleeter downlo
 ## First version of the project
 
 `archive/` holds the first version of this project (course work), including the original write-up (`archive/README_first_version.md`), the first-pass code, and the first evaluation spreadsheets. It is **superseded** by the code and results above; see `archive/README.md`.
-
-## Status and to-do
-
-- [ ] Add a license (code) and check MUSDB18's terms before sharing any audio.
-- [ ] Document the source and license of `impulseresponse.wav`.
-- [ ] Add the paper reference and a citation entry when available.
-- [ ] Add the list of authors and contributors.
