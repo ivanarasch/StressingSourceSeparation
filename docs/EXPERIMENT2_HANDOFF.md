@@ -5,7 +5,7 @@
 
 We asked how common vocal effects change the quality of music source separation. Using the 50 MUSDB18 test songs, we applied four effects (reverb, delay, compression, bitcrushing) at four strengths each to the **vocal stem only**, matched the processed vocal's loudness to the original vocal, remixed it with the untouched drums, bass and other stems, and separated the mixes with two models (Spleeter and Demucs). Reverb and delay degrade the vocal estimate in a graded way (median SDR loss up to about 3.1 dB for reverb and 2.3 dB for delay with Demucs). Compression and bitcrushing cost under about 0.8 dB once loudness is controlled. The accompaniment stems are barely affected. Both models behave alike, and both return the vocal *with* its effect rather than removing it.
 
-## 2. Headline findings (safe to state)
+## 2. Headline findings
 
 1. **Reverb and delay are the harmful effects, and the damage grows with level.** Median vocal ΔSDR at level 4: reverb -3.08 dB (Demucs) / -2.09 dB (Spleeter); delay -2.31 / -1.92 dB.
 2. **Compression and bitcrushing are minor when loudness is controlled** (median ΔSDR from -0.13 to -0.79 dB across all levels and both models).
