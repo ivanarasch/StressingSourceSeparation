@@ -67,7 +67,7 @@ For each condition we saved the exact stems that are in the mix: raw drums, bass
 | Output | 16-bit WAV at 44.1 kHz | 16-bit WAV at 44.1 kHz |
 
 Two practical notes:
-- **Spleeter state bug ** Reusing a single Spleeter object across files made each output depend on the previous file (the same mix scored 3.4 dB or 9.8 dB vocal SDR depending on what ran before it). We therefore create a fresh Separator for every file, and we verified the outputs. Earlier batch-run numbers that reused the object were discarded.
+- **Spleeter state bug.** Reusing a single Spleeter object across files made each output depend on the previous file (the same mix scored 3.4 dB or 9.8 dB vocal SDR depending on what ran before it). We therefore create a fresh Separator for every file, and we verified the outputs. Earlier batch-run numbers that reused the object were discarded.
 - **Demucs randomness.** Demucs's default `shifts=1` applies a random time shift, so separate runs differ slightly. We ran each file once.
 
 Hardware: Apple M4 Max (128 GB); Demucs on the Apple GPU (`mps`), Spleeter on CPU.
