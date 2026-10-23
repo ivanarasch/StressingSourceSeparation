@@ -91,7 +91,7 @@ Hardware: Apple M4 Max (128 GB); Demucs on the Apple GPU (`mps`), Spleeter on CP
 | bass | 8.95 | 4.71 | 8.65 | 4.61 |
 | other | 6.29 | 4.46 | 6.70 | 4.96 |
 
-Demucs is about 2 to 4 dB better than Spleeter on every stem. Spleeter's vocal baseline (about 6.8 dB) is close to the value published for Spleeter on this dataset (verify the exact published figure before citing it), which is a useful sanity check to mention.
+Demucs is about 2 to 4 dB better than Spleeter on every stem. Spleeter's vocal baseline (about 6.8 dB) is close to the value published for Spleeter on this dataset.
 
 ### 7.2 Vocal ΔSDR by effect and level (Figure 1)
 
