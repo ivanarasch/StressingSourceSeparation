@@ -258,10 +258,3 @@ python src/make_figures_exp2.py                          # figures and tables in
 ```
 
 Software used: Python 3.10 (`musdb` 0.4.3, `pydub` 0.25.1, `torch` 2.5.1, `numpy` 2.2.5), Python 3.8 (Spleeter 2.3.2, TensorFlow 2.13.0), Python 3.11 (Demucs 4.1.0a2, torch 2.0.1).
-
-## 12. Items still to confirm before writing
-
-1. Source and approximate decay time of `impulseresponse.wav` (for describing the reverb).
-2. Whether the metric in the paper is plain SDR (as here) or SI-SDR (also available).
-3. Citations: verify every reference (titles, venues, years) before submission.
-4. Data release: MUSDB18's license may restrict redistributing audio. Releasing the code and loudness log is safe; check before sharing audio.
