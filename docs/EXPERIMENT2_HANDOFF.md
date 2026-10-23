@@ -1,6 +1,5 @@
 # Experiment 2 handoff: how vocal effects affect music source separation
 
-*Prepared for the paper-writing co-author. Everything here was generated from the result files in `Experiment2Results_v2/`, so the numbers can be copied directly. Figures are in `results/exp2/figures/` (PNG and PDF) and the underlying tables are in `results/exp2/tables/` (CSV).*
 
 ## 1. One-paragraph summary
 
