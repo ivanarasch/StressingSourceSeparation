@@ -6,7 +6,10 @@ Reads <RESULTS_DIR>/metrics.csv (and dryref_vocals.csv if present) and writes, u
     figures/fig1_vocal_delta_sdr_by_level.{png,pdf}          vocal delta-SDR vs. effect level, 95% bootstrap CI
     figures/fig2_stems_by_effect_level4.{png,pdf}            median delta-SDR for all four stems at level 4
     figures/fig3_processed_vs_dry_reference_level4.{png,pdf} vocal SDR vs. processed and vs. original dry vocal
+    figures/fig4_sdr_level4_with_baseline.{png,pdf}          poster chart: MEAN vocal SDR at level 4, no-effect baselines dashed
     tables/*.csv                                              the numbers behind them
+
+Figures 1 and 2 use medians; figure 4 (the poster chart) uses means, as its axis label says.
 """
 import sys
 from pathlib import Path
@@ -121,5 +124,29 @@ if dry_path.exists():
     axes[1].legend(frameon=False, fontsize=8, loc="lower right")
     plt.tight_layout()
     save("fig3_processed_vs_dry_reference_level4")
+
+# figure 4: the poster chart. MEAN vocal SDR at level 4 per effect, with each model's no-effect average as a dashed line
+vocals = df[df.stem == "vocals"]
+PURPLE, GREEN = "#843DA0", "#00B050"
+fig, ax = plt.subplots(figsize=(8.4, 5.0))
+w = 0.36
+for k, (m, label, col) in enumerate([("demucs", "Demucs", PURPLE), ("spleeter", "Spleeter", GREEN)]):
+    pos = [i + (k - 0.5) * w for i in range(4)]
+    vals = [vocals[(vocals.model == m) & (vocals.condition == f"{e}_l4")].sdr.mean() for e in ORDER_E]
+    ax.bar(pos, vals, w, color=col, label=label)
+    for p, val in zip(pos, vals):
+        ax.text(p, val - 0.18, f"{val + 1e-6:.1f}", ha="center", va="top", fontsize=11, color="white", fontweight="bold")
+    base = vocals[(vocals.model == m) & (vocals.effect == "original")].sdr.mean()
+    ax.axhline(base, color=col, ls="--", lw=1.6)
+    ax.text(-0.55, base + 0.12, f"{label}, no effect: {base:.1f} dB", ha="left", va="bottom", fontsize=10.5, color=col, fontweight="bold")
+ax.set_xticks(range(4))
+ax.set_xticklabels([e.capitalize() for e in ORDER_E])
+ax.set_xlabel("Effect")
+ax.set_ylabel("Mean vocal SDR at level 4 (dB)")
+ax.set_ylim(0, 11)
+ax.set_xlim(-0.6, 3.7)
+ax.legend(loc="upper left", frameon=False, ncol=2)
+plt.tight_layout()
+save("fig4_sdr_level4_with_baseline")
 
 print("figures ->", FIG, "\ntables  ->", TAB)

@@ -14,4 +14,6 @@
 
 **Results:** `results/exp2/` (metrics, dry-reference scores, loudness log, figures, tables) and the write-up in `docs/EXPERIMENT2_HANDOFF.md`.
 
+**Figures** are made by `src/make_figures_exp2.py`. Figures 1 and 2 use medians (ΔSDR by level, and all stems at level 4). Figure 3 compares scoring against the processed and the dry vocal. Figure 4 (`fig4_sdr_level4_with_baseline`) is the poster chart: mean vocal SDR at level 4 for each effect, with each model's no-effect average as a dashed line.
+
 **Models.** Spleeter 2.3.2 `spleeter:4stems` (CPU, a fresh Separator per file); Demucs `htdemucs` (version 4.1.0a2 in our runs, default settings including a random time shift, so reruns differ slightly).
