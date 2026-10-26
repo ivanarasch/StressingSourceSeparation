@@ -7,7 +7,7 @@ against the true MUSDB18 stems (both signals downmixed to mono first):
   component "vocals"     the separated vocal vs. the true vocal stem            <- the scores in the write-up
   component "non_vocal"  the separated rest vs. the true non-vocal stem (bass, drums, other, or drums+bass+other)
 Three metrics are computed,
-with the definitions from the original first-pass script (evaluate_si_metrics.py):
+with the definitions from the original first-pass script (archive/Evaluation/evaluate_si_metrics.py):
   SI_SDR       scale-invariant SDR of the estimate against the true vocal
   SI_SAR_like  10 log10(||est||^2 / ||est - proj(est onto vocal)||^2)   (a fast artifact ratio, not BSS-Eval SAR)
   RMSE         root-mean-square error between the two signals (depends on level)

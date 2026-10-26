@@ -12,7 +12,7 @@
 | 2 | `src/run_spleeter_exp1.py` | Spleeter 2-stem over the mixtures (originally run in Colab) |
 | 2 | `src/run_demucs_exp1.sh` | Demucs 2-stem (`--two-stems=vocals`) over the mixtures |
 | 3 | `src/evaluate_exp1.py` | scores the vocal estimates; writes `results/exp1/` |
-| | `legacy/evaluate_si_metrics.py` | the original first-pass script (compares versions with a separated *original*); kept for reference, see its header |
+| | `archive/Evaluation/evaluate_si_metrics.py` | the original first-pass script (compares versions with a separated *original*); archived, see `archive/README.md` |
 
 **Two things are scored for every pairing.**
 - **The vocal component** (what the write-up reports): the separated vocal against the true vocal stem. This measures how well the vocal is recovered when it is mixed with that one stem.
@@ -50,8 +50,8 @@
 
 Per-song scores are in `results/exp1/metrics.csv` (column `component`), the summary in `results/exp1/summary_median.csv`, and the figure (vocal component) in `results/exp1/`.
 
-**The `legacy/` folder** holds two scripts from the project's `archive/Evaluation/` folder. They score **Spleeter against Demucs's output** (model agreement) and wrote the `demucs_vs_spleeter_*.xlsx` files. They were not used for the write-up table. See `legacy/README.md` for their limitations.
+**Older scripts.** The first-version evaluation scripts, including two that compare Spleeter with Demucs's output (model agreement, not accuracy; they did not produce the write-up table), are archived in `archive/Evaluation/`. See `archive/README.md` for what they do and their limitations.
 
-**Checks done.** A spot check of 20 Spleeter outputs (5 songs x 4 pairings) matched a clean fresh-per-file re-run to about 77 dB, so reusing one Separator was not a problem in this 2-stem run (it was in the 4-stem Experiment 2 run; see `src/run_spleeter_exp2.py`).
+**Checks done.** A spot check of 20 Spleeter outputs (5 songs x 4 pairings) from the original Google Colab run matched a clean fresh-per-file re-run to about 77 dB, so the saved outputs behind the write-up are correct. Re-running the original Colab loop on a Mac (Spleeter 2.3.2, TensorFlow 2.13), which reuses one Separator across files, returned each file's result one file late and gave wrong scores. `src/run_spleeter_exp1.py` therefore uses a fresh Separator per file, and its output was checked against the original outputs (identical for the four pairs of the song tested).
 
 **Caveats.** "SI-SAR-like" and RMSE are non-standard, so define them clearly. The explanation that overlapping harmonic content causes the interference is a hypothesis and has not been tested. Say "median" wherever these numbers are reported.

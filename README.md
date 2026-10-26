@@ -35,6 +35,10 @@ Baseline vocal SDR with no effect: Demucs 8.7 dB, Spleeter 6.8 dB. Reverb and de
 
 ![Vocal change in SDR by effect level](results/exp2/figures/fig1_vocal_delta_sdr_by_level.png)
 
+The same results at the strongest setting, as absolute vocal SDR (mean over the 50 songs, so these numbers differ slightly from the medians above); the dashed lines are each model's score with no effect:
+
+![Mean vocal SDR at effect level 4, with the no-effect baseline](results/exp2/figures/fig4_sdr_level4_with_baseline.png)
+
 ## Repository layout
 
 ```
@@ -46,7 +50,7 @@ src/            ALL the runnable code, named <verb>_<thing>_exp<N> (paths all co
                              evaluate_exp2.py, make_figures_exp2.py
 notebooks/      thin front ends that call the scripts: exp1_interference and exp2_vocal_effects
 experiments/    exp1_interference/ and exp2_vocal_effects/: the description of each experiment
-                (question, design, results, how to run) plus archived legacy scripts
+                (question, design, results, how to run)
 results/exp1/   per-song metrics, median summary, figure
 results/exp2/   metrics.csv, dryref_vocals.csv, loudness_log.csv, figures/, tables/
 requirements/   one file per environment (three are needed, see below)
