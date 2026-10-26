@@ -63,6 +63,9 @@ def work(job):
             if any(len(pred[s]) != len(mix) for s in STEMS):
                 msg = "length mismatch"
                 continue
+            if np.corrcoef(pred["vocals"].mean(1)[::50], pred["drums"].mean(1)[::50])[0, 1] > 0.98:
+                msg = "stems are nearly identical: the 4-stem model probably did not load (check pretrained_models/4stems)"
+                continue
             total = sum(pred[s] for s in STEMS)
             corr = float(np.corrcoef(total.mean(1)[::50], mix.mean(1)[::50])[0, 1])
             out_dir.mkdir(parents=True, exist_ok=True)

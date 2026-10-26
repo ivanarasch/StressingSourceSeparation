@@ -52,6 +52,6 @@ Per-song scores are in `results/exp1/metrics.csv` (column `component`), the summ
 
 **Older scripts.** The first-version evaluation scripts, including two that compare Spleeter with Demucs's output (model agreement, not accuracy; they did not produce the write-up table), are archived in `archive/Evaluation/`. See `archive/README.md` for what they do and their limitations.
 
-**Checks done.** A spot check of 20 Spleeter outputs (5 songs x 4 pairings) matched a clean fresh-per-file re-run to about 77 dB, so reusing one Separator was not a problem in this 2-stem run (it was in the 4-stem Experiment 2 run; see `src/run_spleeter_exp2.py`).
+**Checks done.** A spot check of 20 Spleeter outputs (5 songs x 4 pairings) from the original Google Colab run matched a clean fresh-per-file re-run to about 77 dB, so the saved outputs behind the write-up are correct. Re-running the original Colab loop on a Mac (Spleeter 2.3.2, TensorFlow 2.13), which reuses one Separator across files, returned each file's result one file late and gave wrong scores. `src/run_spleeter_exp1.py` therefore uses a fresh Separator per file, and its output was checked against the original outputs (identical for the four pairs of the song tested).
 
 **Caveats.** "SI-SAR-like" and RMSE are non-standard, so define them clearly. The explanation that overlapping harmonic content causes the interference is a hypothesis and has not been tested. Say "median" wherever these numbers are reported.
